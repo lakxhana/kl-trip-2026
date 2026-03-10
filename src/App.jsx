@@ -80,6 +80,10 @@ export default function App() {
               <p>Save this page on your phone home screen for quick access during the trip.</p>
             </article>
           </div>
+          <div className="important-alert">
+            <strong>Mandatory:</strong> Buy your Touch &apos;n Go card at least 1-2 days before the
+            trip. Without Touch &apos;n Go, you cannot board MRT bus services.
+          </div>
         </section>
 
         <section className={`panel ${currentIndex === 1 ? "active" : ""}`}>
@@ -316,6 +320,9 @@ export default function App() {
               <article className="card">
                 <h3>Touch &apos;n Go + Rail Tips</h3>
                 <ul>
+                  <li>
+                    <strong>Touch &apos;n Go card is mandatory for this trip.</strong>
+                  </li>
                   <li>MRT bus and buses other than the blue UKM bus usually only accept Touch &apos;n Go card payment.</li>
                   <li>Card price is RM20 total: RM10 card + RM10 minimum load.</li>
                   <li>Buy via TnG eWallet (v1.7.72+), NU Sentral official store, selected stores, or Shopee/Lazada.</li>
@@ -339,8 +346,9 @@ export default function App() {
               <article className="card">
                 <h3>If You Cannot Get a Card</h3>
                 <p>
-                  You can buy single-journey tickets or LRT/MRT tokens at the station. This works,
-                  but Touch &apos;n Go is still the easiest option for a full-day KL trip.
+                  Please purchase Touch &apos;n Go before the trip. You still need Touch &apos;n Go
+                  to use MRT bus services. Station tokens/single-journey tickets may help for some
+                  train rides, but they are not enough for MRT bus access.
                 </p>
               </article>
               <article className="card">

@@ -210,6 +210,16 @@ li {
   color: var(--muted);
 }
 
+.important-alert {
+  margin-top: 1rem;
+  border: 1px solid #ffd98a;
+  background: #fff6df;
+  color: #5b3a00;
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  font-weight: 600;
+}
+
 .itinerary-table-wrap {
   overflow-x: auto;
   border: 1px solid var(--border);
