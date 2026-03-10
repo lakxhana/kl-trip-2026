@@ -140,6 +140,38 @@ h2 {
   align-items: start;
 }
 
+.apps-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.app-panels {
+  display: grid;
+  gap: 1rem;
+}
+
+.apps-toggle-btn {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #f3fbfe;
+  color: var(--deep-twilight);
+  font-weight: 700;
+  padding: 0.55rem 0.7rem;
+  cursor: pointer;
+}
+
+.apps-toggle-btn.active {
+  background: var(--bright-teal-blue);
+  color: #fff;
+  border-color: var(--bright-teal-blue);
+}
+
+.apps-toggle-btn:hover {
+  background: var(--frosted-blue);
+}
+
 .card {
   border: 1px solid var(--border);
   background: #fff;
@@ -156,6 +188,11 @@ h2 {
 
 .card h3 {
   margin-top: 0;
+}
+
+.card a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 ul,
@@ -468,6 +505,10 @@ button:focus-visible,
     gap: 0.55rem;
   }
 
+  .apps-toggle {
+    gap: 0.5rem;
+  }
+
 }
 
 @media (max-width: 560px) {
@@ -537,5 +578,10 @@ button:focus-visible,
 
   .app-quick-item span {
     font-size: 0.84rem;
+  }
+
+  .apps-toggle-btn {
+    font-size: 0.86rem;
+    padding: 0.5rem 0.55rem;
   }
 }

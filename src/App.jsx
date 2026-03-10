@@ -16,6 +16,7 @@ const sections = [
 
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [appsView, setAppsView] = useState("apps");
 
   const goTo = (index) => {
     setCurrentIndex(Math.max(0, Math.min(index, sections.length - 1)));
@@ -63,7 +64,7 @@ export default function App() {
                   <strong>Departure:</strong> KIZ lobby, UKM
                 </li>
                 <li>
-                  <strong>Destination:</strong> Kuala Lumpur city center
+                  <strong>Destination:</strong> Kuala Lumpur
                 </li>
                 <li>
                   <strong>Meet-up time:</strong> 9:15 am
@@ -157,17 +158,17 @@ export default function App() {
                 </tr>
                 <tr>
                   <td data-label="Time">11:25 am</td>
-                  <td data-label="Place">Pasar Seni (arrive and disembark)</td>
+                  <td data-label="Place">Arrive at Pasar Seni, go to Central Market entrance, group photo first</td>
                 </tr>
                 <tr>
                   <td data-label="Time">11:30 am onwards</td>
-                  <td data-label="Place">Pasar Seni area (lunch and sightseeing)</td>
+                  <td data-label="Place">Free time at Pasar Seni (lunch and sightseeing)</td>
                 </tr>
                 <tr>
                   <td data-label="Time">11:30 am - 2:00 pm</td>
                   <td data-label="Place">
                     <div className="place-links">
-                      <span className="place-links-label">Pasar Seni options:</span>
+                      <span className="place-links-label">Recommended spots in Pasar Seni:</span>
                       <a
                         href="https://www.google.com/maps/search/?api=1&query=Petaling+Street+Kuala+Lumpur"
                         target="_blank"
@@ -225,13 +226,13 @@ export default function App() {
                 </tr>
                 <tr>
                   <td data-label="Time">2:35 pm</td>
-                  <td data-label="Place">KLCC</td>
+                  <td data-label="Place">Arrive at KLCC, go in front of KLCC tower, group photo first</td>
                 </tr>
                 <tr>
                   <td data-label="Time">4:00 pm</td>
                   <td data-label="Place">
                     <div className="itinerary-place-detail">
-                      <p>KLCC LRT station at Avenue K (Basement Level) - gather</p>
+                      <p>Regroup at KLCC LRT station, Avenue K (Basement Level)</p>
                       <img
                         src={klccAvenueKMeetpoint}
                         alt="KLCC LRT station entrance at Avenue K meeting point"
@@ -255,7 +256,22 @@ export default function App() {
 
         <section className={`panel ${currentIndex === 4 ? "active" : ""}`}>
           <h2>Apps & Touch &apos;n Go / MRT Setup</h2>
-          <div className="grid two-col app-section-grid">
+          <div className="apps-toggle" role="tablist" aria-label="Apps setup view">
+            <button
+              className={`apps-toggle-btn ${appsView === "apps" ? "active" : ""}`}
+              onClick={() => setAppsView("apps")}
+            >
+              Apps
+            </button>
+            <button
+              className={`apps-toggle-btn ${appsView === "transport" ? "active" : ""}`}
+              onClick={() => setAppsView("transport")}
+            >
+              Touch &apos;n Go
+            </button>
+          </div>
+
+          {appsView === "apps" ? (
             <article className="card">
               <h3>Install These Apps</h3>
               <div className="app-gallery">
@@ -295,54 +311,53 @@ export default function App() {
                 </div>
               </div>
             </article>
-            <article className="card">
-              <h3>Touch &apos;n Go + Rail Tips</h3>
-              <ul>
-                <li>MRT bus and buses other than the blue UKM bus usually only accept Touch &apos;n Go card payment.</li>
-                <li>Card price is RM20 total: RM10 card + RM10 minimum load.</li>
-                <li>
-                  You can purchase via Touch &apos;n Go eWallet app (version 1.7.72 and above), official
-                  TnG store in NU Sentral KL, or selected stores (7-Eleven, KK Mart, Petronas Seksyen 9,
-                  Watsons, Mr. DIY / Mr. Dollar), and online (Shopee / Lazada).
-                </li>
-                <li>
-                  Official enhance card outlet list:{" "}
-                  <a href="https://www.touchngo.com.my/consumer/toll/card/enhance-card-outlet/" target="_blank" rel="noreferrer">
-                    touchngo.com.my/consumer/toll/card/enhance-card-outlet
-                  </a>
-                </li>
-              </ul>
-            </article>
-          </div>
-          <div className="card">
-            <h3>If You Cannot Get a Card</h3>
-            <p>
-              You can buy single-journey tickets or LRT/MRT tokens at the station. This works, but
-              Touch &apos;n Go is still the easiest option for a full-day KL trip.
-            </p>
-          </div>
-          <div className="card">
-            <h3>Return to UKM (Self-Return Guide)</h3>
-            <ul>
-              <li>After MRT Merdeka, everyone returns to UKM by themselves.</li>
-              <li>Use Moovit first for live directions if needed.</li>
-              <li>If unsure, take MRT Merdeka directly to MRT Kajang (one direct route).</li>
-              <li>From MRT Kajang, either book Grab/Bolt to KIZ hostel, or take bus T451.</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3>From UKM: How To Get a Touch &apos;n Go Card</h3>
-            <ol>
-              <li>Try nearby KK Mart / 7-Eleven / Watsons / Mr. DIY / petrol stations around UKM first.</li>
-              <li>If unavailable, buy at NU Sentral official TnG store or listed enhance-card outlets in KL.</li>
-              <li>Prepare RM20 (RM10 card + RM10 minimum load) before trip day.</li>
-              <li>If card stock is finished, use station single-journey tickets or tokens for that day.</li>
-            </ol>
-            <p className="note">
-              We will help each other check availability on the way, so do not panic if you cannot
-              find one near campus.
-            </p>
-          </div>
+          ) : (
+            <div className="app-panels">
+              <article className="card">
+                <h3>Touch &apos;n Go + Rail Tips</h3>
+                <ul>
+                  <li>MRT bus and buses other than the blue UKM bus usually only accept Touch &apos;n Go card payment.</li>
+                  <li>Card price is RM20 total: RM10 card + RM10 minimum load.</li>
+                  <li>Buy via TnG eWallet (v1.7.72+), NU Sentral official store, selected stores, or Shopee/Lazada.</li>
+                  <li>
+                    Official outlets:{" "}
+                    <a href="https://www.touchngo.com.my/consumer/toll/card/enhance-card-outlet/" target="_blank" rel="noreferrer">
+                      View official outlet list
+                    </a>
+                  </li>
+                </ul>
+              </article>
+              <article className="card">
+                <h3>Return to UKM (Self-Return Guide)</h3>
+                <ul>
+                  <li>After MRT Merdeka, everyone returns to UKM by themselves.</li>
+                  <li>Use Moovit first for live directions if needed.</li>
+                  <li>If unsure, take MRT Merdeka directly to MRT Kajang (one direct route).</li>
+                  <li>From MRT Kajang, either book Grab/Bolt to KIZ hostel, or take bus T451.</li>
+                </ul>
+              </article>
+              <article className="card">
+                <h3>If You Cannot Get a Card</h3>
+                <p>
+                  You can buy single-journey tickets or LRT/MRT tokens at the station. This works,
+                  but Touch &apos;n Go is still the easiest option for a full-day KL trip.
+                </p>
+              </article>
+              <article className="card">
+                <h3>From UKM: How To Get a Touch &apos;n Go Card</h3>
+                <ol>
+                  <li>Try nearby KK Mart / 7-Eleven / Watsons / Mr. DIY / petrol stations around UKM first.</li>
+                  <li>If unavailable, buy at NU Sentral official TnG store or listed enhance-card outlets in KL.</li>
+                  <li>Prepare RM20 (RM10 card + RM10 minimum load) before trip day.</li>
+                  <li>If card stock is finished, use station single-journey tickets or tokens for that day.</li>
+                </ol>
+                <p className="note">
+                  We will help each other check availability on the way, so do not panic if you
+                  cannot find one near campus.
+                </p>
+              </article>
+            </div>
+          )}
         </section>
 
         <div className="actions">
