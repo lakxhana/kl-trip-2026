@@ -3,6 +3,7 @@ import moovitLogo from "./assets/moovit.jpg";
 import grabLogo from "./assets/grab.jpg";
 import boltLogo from "./assets/bolt.jpg";
 import googleMapsLogo from "./assets/google-maps.jpg";
+import tngEwalletLogo from "./assets/tng-ewallet.jpg";
 import centralMarketEntrance from "./assets/central-market-entrance.png";
 import klccAvenueKMeetpoint from "./assets/klcc-avenue-k-meetpoint.png";
 
@@ -295,6 +296,10 @@ export default function App() {
                   <img src={googleMapsLogo} alt="Google Maps app icon" />
                   <figcaption>Google Maps</figcaption>
                 </figure>
+                <figure className="app-item">
+                  <img src={tngEwalletLogo} alt="Touch n Go eWallet app icon" />
+                  <figcaption>TnG eWallet</figcaption>
+                </figure>
               </div>
               <div className="app-quick-list">
                 <div className="app-quick-item">
@@ -312,6 +317,10 @@ export default function App() {
                 <div className="app-quick-item">
                   <strong>Google Maps</strong>
                   <span>Pins and walking navigation</span>
+                </div>
+                <div className="app-quick-item">
+                  <strong>TnG eWallet</strong>
+                  <span>Buy and manage Touch &apos;n Go card support</span>
                 </div>
               </div>
             </article>
@@ -333,6 +342,30 @@ export default function App() {
                     </a>
                   </li>
                 </ul>
+              </article>
+              <article className="card">
+                <h3>For International Students (No Malaysian Bank Account)</h3>
+                <ol>
+                  <li>
+                    <strong>Register and verify (eKYC):</strong> Download TnG eWallet, sign up with
+                    your phone number (OTP via SMS/WhatsApp), select non-Malaysian/foreigner,
+                    choose Passport (or UNHCR card), then upload document photo + selfie.
+                  </li>
+                  <li>
+                    <strong>If bank account prompt appears:</strong> choose the option that indicates
+                    no Malaysian bank account and continue manual/alternative verification.
+                  </li>
+                  <li>
+                    <strong>Top up without local bank:</strong> use cash reload at selected stores
+                    (for example 7-Eleven/Caring/petrol stations), use reload PINs, or use supported
+                    international card/wallet methods.
+                  </li>
+                  <li>
+                    <strong>Important notes:</strong> verification may take around 3-5+ working days,
+                    install WhatsApp for OTP reliability, and some account limits may apply
+                    (verified foreign accounts can go up to RM5,000).
+                  </li>
+                </ol>
               </article>
               <article className="card">
                 <h3>Return to UKM (Self-Return Guide)</h3>
